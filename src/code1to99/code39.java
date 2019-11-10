@@ -26,14 +26,28 @@ public class code39 {
 	public List<List<Integer>> combinationSum(int[] candidates, int target) {
 		List<List<Integer>> lists = new ArrayList<List<Integer>>();
 		int length = candidates.length;
-		int[] yxsz = new int[length];
-
+		
+		int yxcd = 0;
+		
 		for (int i = 0; i < length; i++) {
-			yxsz[i] = candidates[i];
+			if(candidates[i] <= target) {
+				yxcd++;
+			}
 		}
 		
-		//
+		int[] yxsz = new int[yxcd];
+
+		for (int i = 0 , cd = 0; i < length; i++) {
+			if(candidates[i] <= target) {
+				yxsz[i] = candidates[i];
+				cd++;
+			}
+		}
 
 		return lists;
+	}
+	
+	public List<Integer> dfs(List<Integer> list, boolean[] visit, int[] yxsz, int target) {
+		
 	}
 }
