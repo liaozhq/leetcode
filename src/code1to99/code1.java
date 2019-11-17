@@ -23,42 +23,24 @@ import java.util.Map;
 public class code1 {
 
 	public static void main(String[] args) {
-		int[] tags = new int[5];
-		tags[0] = 1;
-		tags[1] = 2;
-		tags[2] = 3;
-		tags[3] = 4;
-		tags[4] = 5;
-		System.out.println(Arrays.copyOfRange(tags, 0, tags.length).length);
-//		for (int key : twoSum(new int[] { 2, 7, 11, 15 }, 9)) {
-//			System.out.println(key);
-//		}
+		System.out.println(twoSum(new int[] {3,2,4}, 6)[0]);
 	}
 
 	public static int[] twoSum(int[] nums, int target) {
-		int length = nums.length;
-		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-		for (int i = 0; i < length; i++) {
-			if (nums[i] < target) {
-				map.put(nums[i], i);
+		int[] tags = new int[2];
+		
+		int tag = 0;
+		for(int i = 0 ; i < nums.length-1; i++) {
+			tag = i + 1;
+			for(; tag  < nums.length; tag++) {
+				if(nums[i] + nums[tag] == target) {
+					tags[0] = i;
+					tags[1] = tag;
+				}
 			}
 		}
-
-		int[] tags = new int[map.values().size()];
-		int i = 0;
-		for (int key : map.keySet()) {
-			tags[i] = map.get(key);
-			i++;
-		}
-
-		
 		return tags;
 	}
 
-	public static List<List<Integer>> rank(int[] tags) {
-		List<List<Integer>> lists = new ArrayList<List<Integer>>();
-		
-		return lists;
 
-	}
 }
