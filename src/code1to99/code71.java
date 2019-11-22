@@ -1,5 +1,7 @@
 package code1to99;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -29,17 +31,14 @@ public class code71 {
 		Stack<Object> stack = new Stack<Object>();
 		char[] chars = path.toCharArray();
 
-		for (char c : chars) {
+		List<String> list = new ArrayList<String>();
+		// 第一步过滤多余的符号
 
-			Object peek = stack.peek();
-			if (".".equals(String.valueOf(peek)) && ".".equals(String.valueOf(c))) {
-				stack.pop(); //弹出第一个.
-				stack.pop(); //弹出路径
-				if(stack.isEmpty()) { //如果stack没有元素了，就回到/下
-					stack.push('/');
-				}
-			}
-			stack.push(c);
+		String str = "";
+		boolean isS = false;
+		for (int i = 0 ; i < chars.length ; i++) {
+			String cs = String.valueOf(chars[i]);
+
 		}
 
 		return path;
